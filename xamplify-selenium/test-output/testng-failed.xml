@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.xamplify.login.Emailcampaign">
+        <methods>
+          <include name="ecampaign"/>
+          <include name="email_now"/>
+          <include name="email_savetest1"/>
+          <include name="email_schedule"/>
+          <include name="email_now1"/>
+          <include name="email_savetest"/>
+          <include name="email_schedule1"/>
+        </methods>
+      </class> <!-- com.xamplify.login.Emailcampaign -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -2,71 +2,23 @@
 <suite name="Suite" parallel="false">
 <!--   <test name="Test_Registrationvendor">
     <classes>
-      <class name="Testxamplify.automationxamplify.Registrationvendor"/>
+      <class name="com.xamplify.login.Registrationvendor"/>
     </classes>
   </test>  -->
+  
   <test name="Test_Login">
     <classes>
       <class name="com.xamplify.login.Login"/>
     </classes>    
    </test> 
   
-  
-      <!--   <test name="Test_LoginSocialMedia">
+   <test name="Test_ManageTemplates">
     <classes>
-      <class name="com.xamplify.login.LoginSocialMedia"/>
+      <class name="com.xamplify.login.ManageTemplates"/>
     </classes>    
-   </test> -->
-    <!-- <test name="Test_xamplifycontacts">
-    <classes>
-      <class name="Testxamplify.automationxamplify.xamplifycontacts"/>
-    </classes>
-  </test>--> 
-  <!-- <test name="Test_Xamplifypartners">
-    <classes>
-      <class name="com.xamplify.login.Xamplifypartners"/>
-    </classes>
-  </test>  -->
-  <!--  <test name="Test_UploadContent">
-    <classes>
-      <class name="com.xamplify.login.UploadContent"/>
-    </classes>
-  </test> -->
-   <!-- <test name="Test_ManageVideos">
-    <classes>
-      <class name="Testxamplify.automationxamplify.ManageVideos"/>
-    </classes>
-  </test> 
-   <test name="Test_ManageContent">
-    <classes>
-      <class name="Testxamplify.automationxamplify.ManageContent"/>
-    </classes>
-  </test>
-     <test name="Test_EmailTemplate">
-    <classes>
-      <class name="Testxamplify.automationxamplify.EmailTemplate"/>
-    </classes> 
-  </test> 
-   
-   <test name="Emailcampaign">
-    <classes>
-      <class name="Testxamplify.automationxamplify.Emailcampaign"/>
-    </classes>
-  </test>
-   <test name="Test_VideoCampaign">
-    <classes>
-      <class name="Testxamplify.automationxamplify.VideoCampaign"/>
-    </classes> 
-  </test>
-     <test name="Test_ManageCampagins">
-    <classes>
-      <class name="Testxamplify.automationxamplify.ManageCampagins"/>
-    </classes>
-  </test> 
-  <test name="Test_PartnerLogin">
-    <classes>
-      <class name="Testxamplify.automationxamplify.PartnerLogin"/>
-    </classes>
-  </test> -->
+   </test> 
   
+  
+  
+ 
 </suite> <!-- Suite -->

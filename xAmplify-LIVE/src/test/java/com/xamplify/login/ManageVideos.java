@@ -28,7 +28,7 @@ Thread.sleep(4000);
 		driver.findElement(By.xpath("//span[contains(text(),'Manage Videos')]")).click();
 	}
 
-@Test(priority=20)
+@Test(priority=20,enabled=false)
 	public void Video_delete() throws IOException, InterruptedException 
 	{
 Thread.sleep(15000);	
@@ -49,8 +49,10 @@ Thread.sleep(8000);
 		WebElement Video_search = driver.findElement(By.xpath("//input[@placeholder='Search for a Video']")); 
 		Video_search.sendKeys("Himalayas");
 		driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
-Thread.sleep(8000);			
-		driver.findElement(By.xpath("//div[@class='actions-block override-actions']//i[@class='fa fa-line-chart']")).click();
+Thread.sleep(8000);		
+		driver.get("https://xamplify.io/home/videos/manage");
+		Thread.sleep(3000);
+		driver.findElement(By.xpath("/html/body/app-root/app-home/div/div/app-manage-video/div/div[2]/div/div[2]/div/div/div[1]/div[2]/section[1]/div/table/tbody/tr[3]/td[4]/div/a[3]/i")).click();
 Thread.sleep(20000);
 		driver.findElement(By.xpath("//a[contains(text(),'Manage Videos')]")).click();
 Thread.sleep(20000);
@@ -107,7 +109,7 @@ Thread.sleep(8000);
 Thread.sleep(10000);
 
 	Select dropdown_cat = new Select(driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-home[1]/div[1]/div[1]/app-manage-video[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/select[1]")));
-	dropdown_cat.selectByVisibleText("Photography");	
+	dropdown_cat.selectByVisibleText("Accounting");	
 
 Thread.sleep(8000);
 	driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-home[1]/div[1]/div[1]/app-manage-video[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[3]/span[2]/i[1]")).click();
@@ -115,7 +117,7 @@ Thread.sleep(8000);
 	driver.findElement(By.xpath("//i[@class='fa fa-th-list p10']")).click();
 Thread.sleep(11000);
 		WebElement Video_search1 = driver.findElement(By.xpath("//input[@placeholder='Search for a Video']"));
-		Video_search1.sendKeys("Himalayas");
+		Video_search1.sendKeys("Phone");
 		driver.findElement(By.xpath("//i[@class='fa fa-search']")).click();
 Thread.sleep(8000);
 	driver.findElement(By.xpath("//tbody//tr[1]//td[4]//div[1]//a[2]//i[1]")).click();

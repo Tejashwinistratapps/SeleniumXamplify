@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <test name="Test_Login(failed)">
+  <test name="Test_ManageTemplates(failed)">
     <classes>
-      <class name="com.xamplify.login.Login">
+      <class name="com.xamplify.login.ManageTemplates">
         <methods>
-          <include name="login"/>
-          <include name="start"/>
+          <include name="manage_template"/>
         </methods>
-      </class> <!-- com.xamplify.login.Login -->
+      </class> <!-- com.xamplify.login.ManageTemplates -->
     </classes>
-  </test> <!-- Test_Login(failed) -->
+  </test> <!-- Test_ManageTemplates(failed) -->
 </suite> <!-- Failed suite [Suite] -->

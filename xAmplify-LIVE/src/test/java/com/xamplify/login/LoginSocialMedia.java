@@ -13,6 +13,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.testng.annotations.Test;
+
+import ch.qos.logback.core.net.SyslogOutputStream;
 @Component
 public class LoginSocialMedia {
 
@@ -131,8 +133,10 @@ Thread.sleep(10000);
 		driver.findElement(By.xpath("//*[@id=\"submitBitton\"]")).click();
 		Thread.sleep(3000);
 		logger.debug("end - login with credentials");
+		System.out.println("dfjdgsf");
 
 }
+
 }
 
 

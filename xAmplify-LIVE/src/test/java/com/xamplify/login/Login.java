@@ -5,11 +5,6 @@ import java.sql.SQLException;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
@@ -37,7 +32,7 @@ public class Login {
 		driver.findElement(By.id(prop.getProperty("password"))).sendKeys(prop.getProperty("user.password"));
 		driver.findElement(By.id(prop.getProperty("signin"))).click();
 		Thread.sleep(15000);
-	
+		
 	}
 			
 		

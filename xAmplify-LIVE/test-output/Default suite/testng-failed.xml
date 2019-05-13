@@ -3,14 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.xamplify.login.ManageVideos">
+      <class name="com.xamplify.login.Login">
         <methods>
-          <include name="search_Analystics_edit"/>
-          <include name="Sortby_view"/>
-          <include name="Managevideo_MouseHover"/>
-          <include name="Video_delete"/>
+          <include name="login"/>
+          <include name="start"/>
         </methods>
-      </class> <!-- com.xamplify.login.ManageVideos -->
+      </class> <!-- com.xamplify.login.Login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <test name="Test_Xamplifypartners(failed)">
+  <test name="Test_Login(failed)">
     <classes>
-      <class name="com.xamplify.login.Xamplifypartners">
+      <class name="com.xamplify.login.Login">
         <methods>
-          <include name="cfcpartners"/>
-          <include name="uploadcsvpartners"/>
-          <include name="createpartner"/>
+          <include name="login"/>
+          <include name="start"/>
         </methods>
-      </class> <!-- com.xamplify.login.Xamplifypartners -->
+      </class> <!-- com.xamplify.login.Login -->
     </classes>
-  </test> <!-- Test_Xamplifypartners(failed) -->
+  </test> <!-- Test_Login(failed) -->
 </suite> <!-- Failed suite [Suite] -->

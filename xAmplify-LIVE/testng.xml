@@ -5,11 +5,18 @@
       <class name="Testxamplify.automationxamplify.Registrationvendor"/>
     </classes>
   </test>  -->
-        <test name="Test_LoginSocialMedia">
+  <test name="Test_Login">
+    <classes>
+      <class name="com.xamplify.login.Login"/>
+    </classes>    
+   </test> 
+  
+  
+      <!--   <test name="Test_LoginSocialMedia">
     <classes>
       <class name="com.xamplify.login.LoginSocialMedia"/>
     </classes>    
-   </test>
+   </test> -->
     <!-- <test name="Test_xamplifycontacts">
     <classes>
       <class name="Testxamplify.automationxamplify.xamplifycontacts"/>

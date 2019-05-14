@@ -13,8 +13,8 @@ public class ManageTemplates {
 	Properties properties = PropertiesFile.readPropertyFile("datafile.properties");
 	WebDriver driver = Instance.getInstance();
 	
-	@Test(priority=29,enabled=true)
-	public void manage_template() throws InterruptedException {
+	@Test(priority=91,enabled=true)
+	public void manage_templateedit() throws InterruptedException {
 		
 		Thread.sleep(5000);
 		WebElement element=driver.findElement(By.xpath(properties.getProperty("email-hover-2")));
@@ -36,6 +36,8 @@ public class ManageTemplates {
 		if(w1.getText().equalsIgnoreCase("video-cobranding")||w1.getText().equalsIgnoreCase("video-cobranding"))
 		{	
 				*/
+				
+				
 				
 				driver.findElement(By.xpath(properties.getProperty("e_search_temp"))).sendKeys("upload-automation");
 				Thread.sleep(15000);
@@ -67,6 +69,9 @@ public class ManageTemplates {
 			
 			
 		}*/
+	}
+	@Test(priority=92,enabled=true)
+	public void mt_gsortby() throws InterruptedException {
 			
 			driver.findElement(By.xpath(properties.getProperty("e_gridview"))).click();
 
@@ -82,6 +87,11 @@ public class ManageTemplates {
 			Thread.sleep(18000);
 			namea_z.selectByIndex(4);
 			Thread.sleep(20000);
+	}
+	
+	@Test(priority=93,enabled=true)
+	public void mt_allclicks() throws InterruptedException {
+	
 			driver.findElement(By.xpath(properties.getProperty("e_search_temp"))).sendKeys("basic");
 			Thread.sleep(15000);
 			driver.findElement(By.xpath(properties.getProperty("e_clear"))).click();

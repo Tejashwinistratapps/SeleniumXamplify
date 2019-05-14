@@ -108,6 +108,8 @@ public class ManageTemplates {
 		/*driver.findElement(By.xpath(properties.getProperty("e_m_event"))).click();
 		Thread.sleep(8000);
 	*/
+
+		
 	}
 
 }

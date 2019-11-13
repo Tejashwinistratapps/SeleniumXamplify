@@ -1,4 +1,4 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 import java.sql.SQLException;
 
@@ -12,21 +12,20 @@ import org.openqa.selenium.WebDriver;
 public class Login {
 	 WebDriver driver = Instance.getInstance();
 
-		Properties prop = PropertiesFile.readPropertyFile("datafile.properties");
+		Properties prop = PropertiesFile.readPropertyFile("ldata.properties");
 	@Test(priority=1)
 	public void start() throws InterruptedException {
 		
 	driver.get(prop.getProperty("baseUrl"));
 	
 	driver.manage().window().maximize();
-	
 	Thread.sleep(3000);
 	}
 
 	@Test(priority=2,enabled=true)
 	public void login() throws InterruptedException, SQLException {
 
-		driver.findElement(By.xpath(prop.getProperty("loginclick"))).click();
+		
 		Thread.sleep(5000);
 		driver.findElement(By.id(prop.getProperty("email"))).sendKeys(prop.getProperty("user.name"));
 		driver.findElement(By.id(prop.getProperty("password"))).sendKeys(prop.getProperty("user.password"));

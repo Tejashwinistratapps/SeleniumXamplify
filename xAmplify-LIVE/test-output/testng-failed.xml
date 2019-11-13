@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]">
-  <test name="Test_ManageTemplates(failed)">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
     <classes>
-      <class name="com.xamplify.login.ManageTemplates">
+      <class name="com.xamplify.login.Registration">
         <methods>
-          <include name="manage_template"/>
+          <include name="registration"/>
         </methods>
-      </class> <!-- com.xamplify.login.ManageTemplates -->
+      </class> <!-- com.xamplify.login.Registration -->
     </classes>
-  </test> <!-- Test_ManageTemplates(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

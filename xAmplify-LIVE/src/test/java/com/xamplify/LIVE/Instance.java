@@ -1,4 +1,4 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 
 import org.openqa.selenium.WebDriver;

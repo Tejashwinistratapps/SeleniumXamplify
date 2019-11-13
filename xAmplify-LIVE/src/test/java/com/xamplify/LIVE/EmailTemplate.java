@@ -1,4 +1,4 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -6,23 +6,48 @@ import java.util.List;
 import java.util.Properties;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+import junit.framework.Assert;
 
 
 public class EmailTemplate {
 
 	static WebDriver driver = Instance.getInstance();
-	static Properties properties = PropertiesFile.readPropertyFile("C:\\Users\\dtejashwini\\eclipse-workspace\\xamplify-selenium\\datafile.properties");
+	static Properties properties = PropertiesFile.readPropertyFile("rdata.properties");
 	private final static Logger logger = LoggerFactory.getLogger(EmailTemplate.class);
 
-	public static void main(String[] args) throws InterruptedException, SQLException, IOException {
+	
 
-		logger.debug("opening the browser");
+
+	
+
+	@BeforeMethod
+	public void email_hover() throws InterruptedException {
+
+		Thread.sleep(8000);
+
+		WebElement element = driver.findElement(By.xpath(properties.getProperty("email_hover")));
+		Thread.sleep(8000);
+		Actions action = new Actions(driver);
+		action.moveToElement(element).perform();
+		WebElement subelement = driver.findElement(By.xpath(properties.getProperty("create_email_temp")));
+		action.moveToElement(subelement);
+		action.click();
+		action.perform();
+		Thread.sleep(10000);
+
+		
+	}
+	/*		logger.debug("opening the browser");
 
 		driver.manage().window().maximize();
 		logger.debug("Entering the URL");
@@ -41,42 +66,40 @@ public class EmailTemplate {
 		driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-login[1]/div[1]/div[1]/div[2]/form[1]/button[1]"))
 				.click();
 		Thread.sleep(5000);
-		logger.debug("login successful");
+		logger.debug("login successful");*/
+	@Test(priority=2,enabled=true)
+	public void basic_audy() throws InterruptedException, SQLException, IOException
+	{
 
-		Thread.sleep(8000);
-		
-		WebElement element = driver.findElement(By.xpath(properties.getProperty("email_hover")));
-		Thread.sleep(8000);
-		Actions action = new Actions(driver);
-		action.moveToElement(element).perform();
-		WebElement subelement = driver.findElement(By.xpath(properties.getProperty("create_email_temp")));
-		action.moveToElement(subelement);
-		action.click();
-		action.perform();
-		Thread.sleep(5000);
-
-		logger.debug("click basic template module");
-
-		WebElement we_basic = driver.findElement(By.xpath(properties.getProperty("Basic_click")));
-		we_basic.click();
-		Thread.sleep(15000);
-		logger.debug("creating Basic ecommerce email tamplate ");
+		logger.debug("creating Basic ecommerce email template ");
 
 		Actions basic = new Actions(driver);
 		WebElement wbasic = driver.findElement(By.xpath(properties.getProperty("Basic_Ecommerce")));
 		basic.moveToElement(wbasic).build().perform();
-		wbasic.click();
-		Thread.sleep(20000);
+		Thread.sleep(2000);
+		
+		
+		/*logger.debug("click basic template module");
 
-		driver.switchTo().defaultContent();
-		// driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='btn
-		// btn-primary ng-binding ng-scope']")));
-		//driver.switchTo().frame(
-				//driver.findElement(By.xpath("//iframe[@src='https://app.getbee.io/v18.12.18.0923/index.html']")));
-		driver.switchTo().frame(
-				driver.findElement(By.xpath("//*[@id=\'bee-plugin-container\']/iframe")));
+		WebElement we_basic = driver.findElement(By.xpath(properties.getProperty("Basic_click")));
+		we_basic.click();*/
+		driver.findElement(By.xpath(properties.getProperty("Basic_click"))).click();
+		wbasic.click();
 		Thread.sleep(25000);
-		driver.findElement(By.xpath("/html/body/bee-app/div/div/div/div[2]/div[1]/div/div[2]/button")).click();
+
+		//driver.switchTo().defaultContent();
+		driver.switchTo().frame(driver.findElement(By.xpath("//div[@id='bee-plugin-container']//iframe")));
+		Thread.sleep(25000);
+		/*JavascriptExecutor jse = (JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,-250)", "");*/
+		driver.findElement(By.xpath("/html/body/bee-app/div/div/div/div[2]/div[1]/div/div[2]")).click();
+		Thread.sleep(5000);
+
+		//driver.switchTo().frame(
+		//driver.findElement(By.xpath("//iframe[@src='https://app.getbee.io/v18.12.18.0923/index.html']")));
+		//driver.switchTo().frame(
+		//driver.findElement(By.xpath("//*[@id=\'bee-plugin-container\']/iframe")));
+		//driver.findElement(By.xpath("/html/body/bee-app/div/div/div/div[2]/div[1]/div/div[2]/button")).click();
 		driver.switchTo().defaultContent();
 
 		Thread.sleep(5000);
@@ -86,34 +109,90 @@ public class EmailTemplate {
 		List<String> campaignNames = data.listNames(query5i, "name");
 		String campaignNameFromProp = properties.getProperty("BasicEcom_data").toLowerCase();
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-				.sendKeys(properties.getProperty("BasicEcom_data"));
+		.sendKeys(properties.getProperty("BasicEcom_data"));
 		Thread.sleep(5000);
 		if (campaignNames.indexOf(campaignNameFromProp) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-					.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
+		//driver.navigate().back();
+	//	driver.submit();
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_save"))).click();
 		Thread.sleep(5000);
-		driver.findElement(By.cssSelector("#save"));
+		//driver.findElement(By.cssSelector("#save"));
 		Thread.sleep(10000);
-		logger.debug("Saved Basic ecommerce email tamplate ");
-
-		driver.get("https://xamplify.io/home/emailtemplates/manage");
-
-		WebElement element1 = driver.findElement(By.xpath(properties.getProperty("email_hover")));
-		Thread.sleep(5000);
-		Actions action1 = new Actions(driver);
-		action1.moveToElement(element1).perform();
-		WebElement subelement1 = driver.findElement(By.xpath(properties.getProperty("create_email_temp")));
-		action1.moveToElement(subelement1);
-		action1.click();
-		action1.perform();
-		Thread.sleep(5000);
-		driver.findElement(By.xpath(properties.getProperty("basic"))).click();
+		logger.debug("Saved Basic ecommerce email template ");
+		String strng = driver.findElement(By.xpath("//a[contains(text(),'Create Email Templates')]")).getText();
+		Assert.assertEquals("Create Email Templates", strng);
+		System.out.println(strng);
+	}
+	
+	
+	@Test(priority=3,enabled=false)
+	public void basic_chatbot() throws InterruptedException, SQLException {
+		
 		Actions basic1 = new Actions(driver);
-		logger.debug("creating Basic newsletter email tamplate ");
+		logger.debug("creating Basic chatbot email template ");
+
+		WebElement wbasic1 = driver.findElement(By.xpath(properties.getProperty("Basic_chatbot")));
+		basic1.moveToElement(wbasic1).build().perform();
+		
+		Thread.sleep(5000);
+		wbasic1.click();
+
+		//driver.findElement(By.xpath(properties.getProperty("Basic_NewsLetter_tempClick"))).click();
+		Thread.sleep(20000);
+
+		// driver.switchTo().frame(driver.findElement(By.xpath("//iframe[@class='btn
+		// btn-primary ng-binding ng-scope']")));
+		driver.switchTo().frame(driver.findElement(By.xpath("//*[@id=\'bee-plugin-container\']/iframe")));
+		Thread.sleep(25000);
+		
+		driver.findElement(By.xpath("/html/body/bee-app/div/div/div/div[2]/div[1]/div/div[2]/button")).click();
+		driver.switchTo().defaultContent();
+
+		DatabaseQueries data1 = new DatabaseQueries();
+		String query5i1 = properties.getProperty("query.getEmailTemplates");// .replaceAll(":emailId",properties.getProperty("user.name"));
+		List<String> campaignNames1 = data1.listNames(query5i1, "name");
+		String campaignNameFromProp1 = properties.getProperty("BasicEcom_data").toLowerCase();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
+		.sendKeys(properties.getProperty("BasicEcom_data"));
+		Thread.sleep(5000);
+		if (campaignNames1.indexOf(campaignNameFromProp1) > -1) {
+			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name"))).clear();
+			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
+			.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
+			Thread.sleep(25000);
+		}
+		driver.navigate().back();
+		driver.findElement(By.xpath("/html/body/div/div[2]/button[1]")).click();
+		
+
+		//driver.findElement(By.id("save")).click();
+
+		//driver.findElement(By.xpath(properties.getProperty("BasicEcom_save"))).click();
+		Thread.sleep(10000);
+		logger.debug("saved Basic newsletter email template ");
+
+	
+						
+		
+		
+	}
+
+		//driver.get("https://xamplify.io/home/emailtemplates/manage");
+		@Test(priority=4,enabled=false)
+		public void basic_newsletter() throws InterruptedException, SQLException {
+			// TODO Auto-generated method stub
+			
+		
+
+		
+		Actions basic1 = new Actions(driver);
+		logger.debug("creating Basic newsletter email template ");
 
 		WebElement wbasic1 = driver.findElement(By.xpath(properties.getProperty("Basic_NewsLetter_temp")));
 		basic1.moveToElement(wbasic1).build().perform();
@@ -137,12 +216,12 @@ public class EmailTemplate {
 		String campaignNameFromProp1 = properties.getProperty("BasicEcom_data").toLowerCase();
 		Thread.sleep(10000);
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-				.sendKeys(properties.getProperty("BasicEcom_data"));
+		.sendKeys(properties.getProperty("BasicEcom_data"));
 		Thread.sleep(5000);
 		if (campaignNames1.indexOf(campaignNameFromProp1) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-					.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 		driver.findElement(By.xpath("//*[@id='save']")).click();
@@ -152,10 +231,11 @@ public class EmailTemplate {
 
 		//driver.findElement(By.xpath(properties.getProperty("BasicEcom_save"))).click();
 		Thread.sleep(10000);
-		logger.debug("saved Basic newsletter email tamplate ");
-
-		driver.get("https://xamplify.io/home/emailtemplates/manage");
-
+		logger.debug("saved Basic newsletter email template ");
+		}
+		//driver.get("https://xamplify.io/home/emailtemplates/manage");
+		@Test(priority=5,enabled=false)
+public void basic_promo() throws InterruptedException, SQLException, IOException {
 		WebElement element2 = driver.findElement(By.xpath(properties.getProperty("email_hover")));
 		Thread.sleep(5000);
 		Actions action2 = new Actions(driver);
@@ -165,7 +245,7 @@ public class EmailTemplate {
 		action2.click();
 		action2.perform();
 		Thread.sleep(5000);
-		logger.debug("creating Basic promo email tamplate ");
+		logger.debug("creating Basic promo email template ");
 
 		WebElement we_basic1 = driver.findElement(By.xpath(properties.getProperty("Basic_click")));
 
@@ -192,22 +272,22 @@ public class EmailTemplate {
 		List<String> campaignNames2 = data2.listNames(query5i2, "name");
 		String campaignNameFromProp2 = properties.getProperty("BasicEcom_data").toLowerCase();
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-				.sendKeys(properties.getProperty("BasicEcom_data"));
+		.sendKeys(properties.getProperty("BasicEcom_data"));
 		Thread.sleep(5000);
 		if (campaignNames2.indexOf(campaignNameFromProp2) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-					.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name"))).submit();
 
 		//driver.findElement(By.xpath(properties.getProperty("BasicEcom_save"))).click();
-		logger.debug("saved Basic promo email tamplate ");
+		logger.debug("saved Basic promo email template ");
 
 		Thread.sleep(10000);
 
-		driver.get("https://xamplify.io/home/emailtemplates/manage");
+		//driver.get("https://xamplify.io/home/emailtemplates/manage");
 
 		WebElement element3 = driver.findElement(By.xpath(properties.getProperty("email_hover")));
 		Thread.sleep(5000);
@@ -224,7 +304,7 @@ public class EmailTemplate {
 		WebElement wbasic3 = driver.findElement(By.xpath(properties.getProperty("Basic_simple")));
 		basic3.moveToElement(wbasic3).build().perform();
 		Thread.sleep(20000);
-		logger.debug("creating Basic simple email tamplate ");
+		logger.debug("creating Basic simple email template ");
 		Thread.sleep(20000);
 
 		driver.findElement(By.xpath(properties.getProperty("Basic_simpleclick"))).click();
@@ -244,21 +324,21 @@ public class EmailTemplate {
 		List<String> campaignNames3 = data3.listNames(query5i3, "name");
 		String campaignNameFromProp3 = properties.getProperty("BasicEcom_data").toLowerCase();
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-				.sendKeys(properties.getProperty("BasicEcom_data"));
+		.sendKeys(properties.getProperty("BasicEcom_data"));
 		Thread.sleep(5000);
 		if (campaignNames3.indexOf(campaignNameFromProp3) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicEcom_temp_name")))
-					.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("BasicEcom_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 
 		driver.findElement(By.xpath(properties.getProperty("BasicEcom_save"))).click();
 		Thread.sleep(5000);
-		
-		logger.debug("saved Basic simple email tamplate ");
-		
-		driver.get("https://xamplify.io/home/emailtemplates/manage");
+
+		logger.debug("saved Basic simple email template ");
+
+		//driver.get("https://xamplify.io/home/emailtemplates/manage");
 
 		WebElement element4 = driver.findElement(By.xpath(properties.getProperty("email_hover")));
 		Thread.sleep(5000);
@@ -318,12 +398,12 @@ public class EmailTemplate {
 		String campaignNameFromProp4 = properties.getProperty("upld_tmp_name_senddata").toLowerCase();
 
 		driver.findElement(By.xpath(properties.getProperty("upld_tmp_name")))
-				.sendKeys(properties.getProperty("upld_tmp_name_senddata"));
+		.sendKeys(properties.getProperty("upld_tmp_name_senddata"));
 		Thread.sleep(5000);
 		if (campaignNames4.indexOf(campaignNameFromProp4) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("upld_tmp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("upld_tmp_name")))
-					.sendKeys(properties.getProperty("upld_tmp_name_senddata") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("upld_tmp_name_senddata") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 
@@ -363,12 +443,12 @@ public class EmailTemplate {
 		String campaignNameFromProp5 = properties.getProperty("regular_temp_senddata").toLowerCase();
 
 		driver.findElement(By.xpath(properties.getProperty("regular_temp_name")))
-				.sendKeys(properties.getProperty("regular_temp_senddata"));
+		.sendKeys(properties.getProperty("regular_temp_senddata"));
 		Thread.sleep(5000);
 		if (campaignNames5.indexOf(campaignNameFromProp5) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("regular_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("regular_temp_name")))
-					.sendKeys(properties.getProperty("regular_temp_senddata") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("regular_temp_senddata") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 
@@ -383,8 +463,8 @@ public class EmailTemplate {
 		logger.debug("saved upload regular template");
 
 		// VideoTemplate//
-		
-		driver.get("https://xamplify.io/home/emailtemplates/manage");
+
+		//driver.get("https://xamplify.io/home/emailtemplates/manage");
 
 		WebElement element5 = driver.findElement(By.xpath(properties.getProperty("email_hover")));
 		Thread.sleep(8000);
@@ -394,9 +474,9 @@ public class EmailTemplate {
 		action5.moveToElement(subelement5);
 		action5.click();
 		action5.perform();
-		
+
 		logger.debug("creating  video template");
-		
+
 		Thread.sleep(8000);
 		WebElement we_basic5 = driver.findElement(By.linkText(properties.getProperty("Basic_video_click")));
 		we_basic5.click();
@@ -425,12 +505,12 @@ public class EmailTemplate {
 		List<String> campaignNames6 = data6.listNames(query5i6, "name");
 		String campaignNameFromProp6 = properties.getProperty("BasicVideo_data").toLowerCase();
 		driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name")))
-				.sendKeys(properties.getProperty("BasicVideo_data"));
+		.sendKeys(properties.getProperty("BasicVideo_data"));
 		Thread.sleep(5000);
 		if (campaignNames6.indexOf(campaignNameFromProp6) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name")))
-					.sendKeys(properties.getProperty("BasicVideo_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("BasicVideo_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 
@@ -440,8 +520,8 @@ public class EmailTemplate {
 		logger.debug("saved  video template");
 
 		// EMAILCO-BRANDING//
-		driver.get("https://xamplify.io/home/emailtemplates/manage");
-
+		//driver.get("https://xamplify.io/home/emailtemplates/manage");
+		//
 		WebElement element6 = driver.findElement(By.xpath(properties.getProperty("email_hover")));
 		Thread.sleep(8000);
 		Actions action6 = new Actions(driver);
@@ -480,12 +560,12 @@ public class EmailTemplate {
 		List<String> campaignNames7 = data7.listNames(query5i7, "name");
 		String campaignNameFromProp7 = properties.getProperty("Email_Cobrand_data").toLowerCase();
 		driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name")))
-				.sendKeys(properties.getProperty("Email_Cobrand_data"));
+		.sendKeys(properties.getProperty("Email_Cobrand_data"));
 		Thread.sleep(5000);
 		if (campaignNames7.indexOf(campaignNameFromProp7) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name")))
-					.sendKeys(properties.getProperty("Email_Cobrand_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("Email_Cobrand_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 
@@ -540,7 +620,7 @@ public class EmailTemplate {
 		if (campaignNames8.indexOf(campaignNameFromProp8) > -1) {
 			driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name"))).clear();
 			driver.findElement(By.xpath(properties.getProperty("BasicVideo_temp_name")))
-					.sendKeys(properties.getProperty("Video_Cobrand_data") + "_" + System.currentTimeMillis());
+			.sendKeys(properties.getProperty("Video_Cobrand_data") + "_" + System.currentTimeMillis());
 			Thread.sleep(25000);
 		}
 
@@ -552,4 +632,8 @@ public class EmailTemplate {
 		//driver.findElement(By.xpath(properties.getProperty("LogoClick"))).click();
 	}
 
+
+
+
+	
 }

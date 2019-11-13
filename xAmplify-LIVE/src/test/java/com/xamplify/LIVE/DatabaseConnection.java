@@ -1,4 +1,4 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -46,9 +46,10 @@ public class DatabaseConnection {
 		Connection connection = null;
 
 		try {
-
 			connection = DriverManager.getConnection("jdbc:postgresql://165.227.61.132:5432/xamplify", "postgres", "Xtremand12");
-
+			//connection = DriverManager.getConnection("jdbc:postgresql://xamplify-postgresql-sfo2-do-user-1344108-0.db.ondigitalocean.com:25060/xamplify-test?sslmode=require", "doadmin", "lc9uz6iftuum6vuj");
+			//jdbc:postgresql://xamplify-postgresql-sfo2-do-user-1344108-0.db.ondigitalocean.com:25060/xamplify-release?sslmode=require
+			
 		} catch (SQLException e) {
 
 			System.out.println("Connection Failed! Check output console");

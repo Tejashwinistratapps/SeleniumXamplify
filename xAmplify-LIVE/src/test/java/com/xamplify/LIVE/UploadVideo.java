@@ -1,7 +1,8 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,35 +26,16 @@ import org.testng.annotations.Test;
 
 public class UploadVideo
 {
+	 WebDriver driver = Instance.getInstance();
+	 
+		Properties properties = PropertiesFile.readPropertyFile("rdata.properties");
+		
 
-	static WebDriver driver = Instance.getInstance();
-	//static Properties properties = PropertiesFile.readPropertyFile("C:\\Users\\dtejashwini\\eclipse-workspace\\xamplify-selenium\\datafile.properties");
-	static Properties properties = PropertiesFile.readPropertyFile("datafile.properties");
-	public  static Logger logger = LoggerFactory.getLogger(UploadVideo.class);
-
-
-	public static void main(String[] args) throws InterruptedException, IOException {
-
-		driver.manage().window().maximize();
-		logger.debug("Entering the URL");
-
-		driver.get("https://xamplify.io/");
-		driver.findElement(By.xpath("//a[@class='loginTF']")).click();
-		logger.debug("login with credentials");
-
-		Thread.sleep(10000);
-		WebElement usernameElement = driver.findElement(By.xpath("//input[@id='username']")); 
-		WebElement passwordElement = driver.findElement(By.xpath("//input[@id='password']"));
-		usernameElement.sendKeys("dtejashwini@stratapps.com");
-		passwordElement.sendKeys("Xamplify@11");
-		Thread.sleep(3000);
-
-		driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-login[1]/div[1]/div[1]/div[2]/form[1]/button[1]")).click();
-		Thread.sleep(5000);
-		//driver.findElement(By.xpath("//*[@id=\"submitBitton\"]")).click();
-		Thread.sleep(3000);
-		logger.debug("end - login with credentials");
-
+		@BeforeMethod
+		
+		public void uploadvideo() throws InterruptedException, SQLException, IOException
+		{
+			driver.get("baseurlwelcome");
 		Thread.sleep(3000);
 		WebElement ele = driver.findElement(By.xpath(properties.getProperty("Content_Mousehover")));
 		Actions act = new Actions(driver);
@@ -64,7 +46,7 @@ public class UploadVideo
 
 
 
-		logger.debug("starting video browse");
+		//logger.debug("starting video browse");
 
 		driver.findElement(By.xpath(properties.getProperty("vBrowse_click"))).click();
 
@@ -76,11 +58,15 @@ public class UploadVideo
 		Thread.sleep(15000);
 		driver.findElement(By.xpath(properties.getProperty("vBrowse_Home_click"))).click();
 		Thread.sleep(3000);
-		logger.debug(" video is processing");
+		//logger.debug(" video is processing");
 
 		driver.findElement(By.xpath(properties.getProperty("vBrowse_popupsave"))).click();
 		Thread.sleep(10000);
-		logger.debug("end video upload browse");
+		///logger.debug("end video upload browse");
+		
+		}
+		@Test(priority=111,enabled=true)
+		public void upload1() throws InterruptedException {
 
 		Thread.sleep(3000);
 		WebElement ele111 = driver.findElement(By.xpath(properties.getProperty("Content_Mousehover")));
@@ -89,7 +75,7 @@ public class UploadVideo
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("Upload_Click"))).click();
 		Thread.sleep(10000);
-		logger.debug("starting record video from webcam");
+		//logger.debug("starting record video from webcam");
 
 
 		driver.findElement(By.xpath(properties.getProperty("webclick"))).click();
@@ -109,7 +95,13 @@ public class UploadVideo
 		//driver.findElement(By.xpath("//button[@class='btn btn-danger']")).click();	
 		//driver.findElement(By.xpath(properties.getProperty("crossclick"))).click();
 		Thread.sleep(6000);
-		logger.debug("end record video from webcam");
+		//logger.debug("end record video from webcam");
+		}
+		
+
+		@Test(priority=112,enabled=true)
+		public void upload2() throws InterruptedException {
+		
 		
 		Thread.sleep(3000);
 		WebElement eledb = driver.findElement(By.xpath(properties.getProperty("Content_Mousehover")));
@@ -118,7 +110,7 @@ public class UploadVideo
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("Upload_Click"))).click();
 		Thread.sleep(10000);
-		logger.debug("Starting select video from dropbox");
+	//	logger.debug("Starting select video from dropbox");
 
 		driver.findElement(By.xpath(properties.getProperty("vdropbox_click"))).click();
 
@@ -158,7 +150,15 @@ public class UploadVideo
 		driver.findElement(By.xpath(properties.getProperty("vBrowse_popupsave"))).click();
 
 		Thread.sleep(10000);
-		logger.debug("end select video from dropbox");
+		}
+		
+
+		@Test(priority=113,enabled=true)
+		public void upload3() throws InterruptedException {
+		
+		
+		
+		//logger.debug("end select video from dropbox");
 		WebElement ele11 = driver.findElement(By.xpath(properties.getProperty("Content_Mousehover")));
 		Actions act11 = new Actions(driver);
 		act11.moveToElement(ele11).perform();
@@ -166,7 +166,7 @@ public class UploadVideo
 		driver.findElement(By.xpath(properties.getProperty("Upload_Click"))).click();
 		Thread.sleep(10000);
 
-		logger.debug("Starting select video from box");
+		//logger.debug("Starting select video from box");
 
 		Thread.sleep(5000);
 
@@ -211,7 +211,13 @@ public class UploadVideo
 
 		Thread.sleep(10000);
 
-		logger.debug("end select video from box");
+		//logger.debug("end select video from box");
+		
+		}
+		
+
+		@Test(priority=114,enabled=true)
+		public void upload4() throws InterruptedException {
 
 		WebElement ele3 = driver.findElement(By.xpath(properties.getProperty("Content_Mousehover")));
 		Actions act3 = new Actions(driver);
@@ -220,7 +226,7 @@ public class UploadVideo
 		driver.findElement(By.xpath(properties.getProperty("Upload_Click"))).click();
 		Thread.sleep(10000);
 
-		logger.debug("selecting video from google drive");
+		//logger.debug("selecting video from google drive");
 
 		driver.findElement(By.xpath(properties.getProperty("GD_click"))).click();
 		Thread.sleep(5000);
@@ -266,7 +272,7 @@ public class UploadVideo
 			driver.findElement(By.xpath(properties.getProperty("GD_video"))).click();
 			Thread.sleep(3000);
 			driver.findElement(By.xpath(properties.getProperty("GD_video_select"))).click();
-			logger.debug("selecting the video from google drive completed");
+			//logger.debug("selecting the video from google drive completed");
 
 			System.out.println("successfully uploaded the video from google drive");
 		}
@@ -285,11 +291,11 @@ public class UploadVideo
 			driver.findElement(By.xpath(properties.getProperty("GD_video_select"))).click();
 			System.out.println("successfully uploaded the video from google drive");
 		}
-		logger.debug("selecting the video from google drive completed");
+		//logger.debug("selecting the video from google drive completed");
 		Thread.sleep(3000);
 		//driver.close();
 
-
+		}
 /*
 	driver.findElement(By.xpath("/html[1]/body[1]/app-root[1]/app-home[1]/div[1]/div[1]/app-upload-video[1]/div[1]/div[3]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/img[1]")).click();
 	Thread.sleep(5000);
@@ -306,20 +312,7 @@ public class UploadVideo
 */
 
 }
-}
 	
-			
-    
-    
-	//new Actions(driver).sendKeys(Keys.ESCAPE).build().perform();
-	/*ChromeOptions options = new ChromeOptions();
-	options.addArguments("--disable-notifications");*/
-	//WebDriver driver = Instance.getInstance();
-
-	//System.setProperty("webdriver.chrome.driver","D:\\selenium\\chromedriver2.exe");
-	//WebDriver driver =new ChromeDriver(options);
-
-
 	
 
 	

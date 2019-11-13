@@ -2,23 +2,134 @@
 <suite name="Suite" parallel="false">
 <!--   <test name="Test_Registrationvendor">
     <classes>
-      <class name="com.xamplify.login.Registrationvendor"/>
+      <class name="com.xamplify.LIVE.Registrationvendor"/>
     </classes>
   </test>  -->
   
   <test name="Test_Login">
     <classes>
+      <class name="com.xamplify.LIVE.Login"/>
+    </classes>    
+   </test> 
+   
+  <!-- 
+   <test name="Test_LaunchVideo">
+    <classes>
+      <class name="com.xamplify.login.LaunchVideo"/>
+    </classes>    
+   </test> -->
+   
+  <!--  <test name="Test_PartnerRedistribute">
+    <classes>
+      <class name="com.xamplify.login.PartnerRedistribute"/>
+    </classes>    
+   </test>  --> 
+     
+  <!-- <test name="Test_VideoOpportunities">
+    <classes>
+      <class name="com.xamplify.login.VideoOpportunities"/>
+    </classes>    
+   </test>  
+     -->
+   
+   
+   <!-- <test name="Test_SaveEmail">
+    <classes>
+      <class name="com.xamplify.login.SaveEmail"/>
+    </classes>    
+   </test>
+    -->
+   <!-- <test name="Test_Launch_Email">
+    <classes>
+      <class name="com.xamplify.login.Launch_Email"/>
+    </classes>    
+   </test>
+    -->
+  <!--  <test name="Test_ScheduleEmail">
+    <classes>
+      <class name="com.xamplify.login.ScheduleEmail"/>
+    </classes>    
+   </test>  -->
+   <!--   <test name="Test_PartnerLogin">
+    <classes>
+      <class name="com.xamplify.login.PartnerLogin"/>
+    </classes>    
+   </test>   -->
+  <!--   <test name="Test_Registration">
+    <classes>
+      <class name="com.xamplify.login.Registration"/>
+    </classes>    
+   </test>  -->
+   
+   <!--  <test name="Test_LaunchVideo">
+    <classes>
+      <class name="com.xamplify.login.LaunchVideo"/>
+    </classes>    
+   </test>
+    -->
+   <!--  <test name="Test_ScheduleVideo">
+    <classes>
+      <class name="com.xamplify.login.ScheduleVideo"/>
+    </classes>    
+   </test>
+   
+    <test name="Test_saveVideo">
+    <classes>
+      <class name="com.xamplify.login.SaveVideo"/>
+    </classes>    
+   </test>  -->
+   
+  <!--  <test name="Test_UploadVideo">
+    <classes>
+      <class name="com.xamplify.login.UploadVideo"/>
+    </classes>     
+   </test> -->
+   
+   <!-- <test name="Test_Login">
+    <classes>
       <class name="com.xamplify.login.Login"/>
     </classes>    
    </test> 
   
+   <test name="Test_Emailcampaign">
+    <classes>
+      <class name="com.xamplify.login.Emailcampaign"/>
+    </classes>    
+   </test> -->
+ <!--  <test name="Test_EmailTemplates">
+    <classes>
+      <class name="com.xamplify.login.EmailTemplate"/>
+    </classes>    
+   </test>  
    <test name="Test_ManageTemplates">
     <classes>
       <class name="com.xamplify.login.ManageTemplates"/>
     </classes>    
-   </test> 
+   </test>   -->
+ <!--   <test name="Test_ManageCampagins">
+    <classes>
+      <class name="com.xamplify.login.ManageCampagins"/>
+    </classes>    
+   </test> -->
+   
   
-  
-  
+   <!-- <test name="Test_Xamplifypartners">
+    <classes>
+      <class name="com.xamplify.login.Xamplifypartners"/>
+    </classes>  
+    </test> 
+    
+  <test name="Test_Managepartners">
+    <classes>
+      <class name="com.xamplify.login.ManagePartners"/>
+    </classes>    
+   </test>  -->
+    
+ <!--  <test name="Test_ReferAVendor">
+    <classes>
+      <class name="com.xamplify.login.ReferAVendor"/>
+    </classes>  
+    </test>  -->
+   
  
 </suite> <!-- Suite -->

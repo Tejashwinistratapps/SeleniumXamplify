@@ -1,16 +1,18 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 public class ManageTemplates {
 
-	Properties properties = PropertiesFile.readPropertyFile("datafile.properties");
+	Properties properties = PropertiesFile.readPropertyFile("rdata.properties");
 	WebDriver driver = Instance.getInstance();
 	
 	@Test(priority=91,enabled=true)
@@ -24,29 +26,40 @@ public class ManageTemplates {
 			action.moveToElement(mnge_ele);
 			action.click();
 			action.perform();
-				Thread.sleep(5000);
-				driver.findElement(By.xpath(properties.getProperty("mnge_temp_preview"))).click();
+				Thread.sleep(8000);
+				
+				/*driver.findElement(By.xpath(properties.getProperty("mnge_temp_preview"))).click();
 				Thread.sleep(5000);
 			
 				driver.findElement(By.xpath(properties.getProperty("mnge_temp_preview_close"))).click();
+				Thread.sleep(5000);*/
+				
+	
+				
+				
+				driver.findElement(By.xpath(properties.getProperty("e_search_temp"))).sendKeys("Upload 1");
 				Thread.sleep(5000);
-				
-	/*	WebElement w1=driver.findElement(By.xpath("e_temp_cndtn"));
-		
-		if(w1.getText().equalsIgnoreCase("video-cobranding")||w1.getText().equalsIgnoreCase("video-cobranding"))
-		{	
-				*/
-				
-				
-				
-				driver.findElement(By.xpath(properties.getProperty("e_search_temp"))).sendKeys("upload-automation");
-				Thread.sleep(15000);
 				driver.findElement(By.xpath(properties.getProperty("mnge_temp_search"))).click();
 				Thread.sleep(10000);
 			
-					driver.findElement(By.xpath(properties.getProperty("mnge_edit_temp"))).click();
+				
+				
 					Thread.sleep(5000);
 					
+					
+						driver.findElement(By.xpath(properties.getProperty("mnge_edit_temp"))).click();
+
+					
+						//div[@class='bar']//i[@class='fa fa-pencil-square-o']
+					
+				/*	WebDriverWait wait11 = new WebDriverWait(driver, 30);
+
+					
+
+					WebElement save = wait11.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("e_temp_esave"))));
+					save.click(); */
+					
+				Thread.sleep(5000);	
 			
 			driver.findElement(By.xpath(properties.getProperty("tmpname_updte"))).sendKeys("-1");
 			Thread.sleep(5000);
@@ -60,6 +73,11 @@ public class ManageTemplates {
 		}
 		else
 		{
+		
+		
+		
+		
+		
 			driver.findElement(By.xpath(properties.getProperty("mnge_edit_temp"))).click();
 			Thread.sleep(5000);
 			driver.findElement(By.xpath(properties.getProperty("e_temp_esave"))).click();
@@ -70,8 +88,9 @@ public class ManageTemplates {
 			
 		}*/
 	}
-	@Test(priority=92,enabled=true)
+	@Test(priority=92,enabled=false)
 	public void mt_gsortby() throws InterruptedException {
+		
 			
 			driver.findElement(By.xpath(properties.getProperty("e_gridview"))).click();
 
@@ -89,7 +108,7 @@ public class ManageTemplates {
 			Thread.sleep(20000);
 	}
 	
-	@Test(priority=93,enabled=true)
+	@Test(priority=93,enabled=false)
 	public void mt_allclicks() throws InterruptedException {
 	
 			driver.findElement(By.xpath(properties.getProperty("e_search_temp"))).sendKeys("basic");

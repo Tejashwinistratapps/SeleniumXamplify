@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="294261" started-at="2019-05-13T12:38:54Z" finished-at="2019-05-13T12:43:48Z">
+  <suite name="Suite" duration-ms="36964" started-at="2019-11-13T09:27:31Z" finished-at="2019-11-13T09:28:07Z">
     <groups>
     </groups>
-    <test name="Test_Login" duration-ms="29296" started-at="2019-05-13T12:38:54Z" finished-at="2019-05-13T12:39:23Z">
-      <class name="com.xamplify.login.Login">
-        <test-method status="PASS" signature="start()[pri:0, instance:com.xamplify.login.Login@1ed4ae0f]" name="start" duration-ms="8628" started-at="2019-05-13T18:08:54Z" finished-at="2019-05-13T18:09:03Z">
+    <test name="Test_Login" duration-ms="36964" started-at="2019-11-13T09:27:31Z" finished-at="2019-11-13T09:28:07Z">
+      <class name="com.xamplify.LIVE.Login">
+        <test-method status="PASS" signature="start()[pri:0, instance:com.xamplify.LIVE.Login@1ed4ae0f]" name="start" duration-ms="15529" started-at="2019-11-13T14:57:31Z" finished-at="2019-11-13T14:57:46Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- start -->
-        <test-method status="PASS" signature="login()[pri:0, instance:com.xamplify.login.Login@1ed4ae0f]" name="login" duration-ms="20631" started-at="2019-05-13T18:09:03Z" finished-at="2019-05-13T18:09:23Z">
+        <test-method status="PASS" signature="login()[pri:0, instance:com.xamplify.LIVE.Login@1ed4ae0f]" name="login" duration-ms="21393" started-at="2019-11-13T14:57:46Z" finished-at="2019-11-13T14:58:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-      </class> <!-- com.xamplify.login.Login -->
+      </class> <!-- com.xamplify.LIVE.Login -->
     </test> <!-- Test_Login -->
-    <test name="Test_ManageTemplates" duration-ms="264910" started-at="2019-05-13T12:39:23Z" finished-at="2019-05-13T12:43:48Z">
-      <class name="com.xamplify.login.ManageTemplates">
-        <test-method status="PASS" signature="manage_template()[pri:0, instance:com.xamplify.login.ManageTemplates@663c9e7a]" name="manage_template" duration-ms="264905" started-at="2019-05-13T18:09:23Z" finished-at="2019-05-13T18:13:48Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- manage_template -->
-      </class> <!-- com.xamplify.login.ManageTemplates -->
-    </test> <!-- Test_ManageTemplates -->
   </suite> <!-- Suite -->
 </testng-results>

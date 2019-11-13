@@ -1,4 +1,4 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 
 
 import java.sql.SQLException;
@@ -14,39 +14,42 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-	public class PartnerLogin {
+	public class PartnerLogin{
 
-		Properties properties = PropertiesFile.readPropertyFile("datafile.properties");
+		Properties properties = PropertiesFile.readPropertyFile("rdata.properties");
 		public static ChromeDriver driver;
-	@Test(priority=42)
+		
+	@Test(priority=42,enabled=true)
 		public void partner_login() throws InterruptedException
 		{
-		System.setProperty("webdriver.chrome.driver", "D:/Selenium/chromedriver2.exe");
+		Thread.sleep(20000);
+		driver.findElement(By.xpath("//*[@id='headerdropDownLi']/a")).click();
+		Thread.sleep(3000);
+		driver.findElement(By.xpath(properties.getProperty("clicklogout"))).click();
+		
+		/*System.setProperty("webdriver.chrome.driver", "D:/Selenium/chromedriver2.exe");
 		Thread.sleep(3000);
 		 driver = new ChromeDriver();
 		Thread.sleep(3000);
 
 		driver.manage().window().maximize();
 		driver.get("https://release.xamplify.io/");
-		driver.findElement(By.xpath("//*[@id=\"bs-navbar-collapse-1\"]/ul[2]/li[1]/a")).click();
-		
+		//driver.findElement(By.xpath("//*[@id=\"bs-navbar-collapse-1\"]/ul[2]/li[1]/a")).click();
+*/		
 	Thread.sleep(5000);
 
-		WebElement usernameElement = driver.findElement(By.name("username")); 
-		WebElement passwordElement = driver.findElement(By.name("password"));
-
-		   usernameElement.sendKeys("gayatrialla11@gmail.com"); 
-		   passwordElement.sendKeys("Xamplify@11");
+	driver.findElement(By.id(properties.getProperty("email"))).sendKeys(properties.getProperty("partnerusername"));
+	driver.findElement(By.id(properties.getProperty("password"))).sendKeys(properties.getProperty("partnerpassword"));
 		   Thread.sleep(5000);
 		driver.findElement(By.xpath("//button[@id='submitBitton']")).click();
 		}
 	
-	@Test(priority=43)
+	@Test(priority=43,enabled=true)
 	public void hoverRedistributecampaigns() throws InterruptedException
 	{
 		   Thread.sleep(5000);
 
-		driver.get("https://release.xamplify.io/home/dashboard/welcome");
+		//driver.get("https://release.xamplify.io/home/dashboard/welcome");
 		Thread.sleep(10000);	
 		WebElement ele=driver.findElement(By.xpath("//body[@class='login page-header-fixed page-sidebar-closed-hide-logo page-container-bg-solid page-sidebar-closed-hide-logo']/app-root[@ng-version='4.3.6']/app-home/div[@class='page-container']/app-leftsidebar/div[@class='page-sidebar-wrapper']/div[@class='page-sidebar navbar-collapse collapse']/ul[@class='page-sidebar-menu page-sidebar-menu-hover-submenu']/li[3]/a[1]")); 	
 		Actions act=new Actions(driver);
@@ -61,10 +64,17 @@ import org.testng.annotations.Test;
 	}
 
 	
-	@Test(priority=44)
-		public void Redistribute() throws InterruptedException
-		{
-	Thread.sleep(5000);
+	@Test(priority=44,enabled=true)
+		public void Redistribute() throws InterruptedException{
+		
+String nameMo = VideoCampaign.getcurrentcampaignname();//Retrieve the name
+        
+        System.out.print("Your name is: " +nameMo);//Display the name
+		Thread.sleep(5000);
+		WebElement getstring = driver.findElement(By.xpath("//div[@class='input-icon right']//input[@placeholder='Search...']"));
+		getstring.sendKeys(nameMo);
+		getstring.click();
+	//Thread.sleep(5000);
 		driver.findElement(By.xpath("//tbody//tr[1]//td[5]//div[1]//a[2]//i[1]")).click();
 	Thread.sleep(5000);	
 		driver.findElement(By.xpath("//a[@class='pull-right btn btn-primary btn-sm']")).click();
@@ -127,7 +137,6 @@ import org.testng.annotations.Test;
 
 		}
 		}
-	@Test(priority=46)
 	public void hoverManagecampaigns() throws InterruptedException
 	{
 Thread.sleep(10000);	

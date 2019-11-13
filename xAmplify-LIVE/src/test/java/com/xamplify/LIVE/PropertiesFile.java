@@ -1,4 +1,4 @@
-package com.xamplify.login;
+package com.xamplify.LIVE;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

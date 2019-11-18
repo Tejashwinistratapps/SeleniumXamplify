@@ -14,6 +14,7 @@ public class AutoResponsesEmail extends Emailcampaign {
 	public void autoResponsesEmail() throws InterruptedException {
 
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse1"))).click(); // auto responses
+		
 		Thread.sleep(5000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
@@ -200,6 +201,8 @@ public class AutoResponsesEmail extends Emailcampaign {
 		JavascriptExecutor js16 = (JavascriptExecutor) driver;
 		js16.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 
+		Thread.sleep(5000);
+		
 		driver.findElement(By.xpath(properties.getProperty("email_visit_email4"))).click(); // auto response
 		Thread.sleep(5000);
 
@@ -214,21 +217,42 @@ public class AutoResponsesEmail extends Emailcampaign {
 		Thread.sleep(3000);
 		reason11.selectByValue("22");
 		Thread.sleep(5000);
-		driver.findElement(By.xpath("//*[@id=\"reply-7\"]/div[1]/div[2]/div/switch/div/div/span[2]")).click();
+		/* Remove the comment of the below line. In order, to choose the template*/
+		
+		//driver.findElement(By.xpath("//*[@id=\"reply-7\"]/div[1]/div[2]/div/switch/div/div/span[2]")).click(); 
+		
 
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("evsubject7"))).sendKeys(" redistribute mail.");
-		driver.findElement(By.xpath(properties.getProperty("emin_1day"))).sendKeys("1"); // subject
+		driver.findElement(By.xpath(properties.getProperty("emin_1day"))).sendKeys("1"); // schedule time
 		Thread.sleep(5000);
-
-		driver.findElement(By.xpath(properties.getProperty("eautoresponse_template_senddata"))).sendKeys("t1234");
+		
+		/*
+		 * Keep the code in comment from line-232 to line-242, if you choose the template.
+		 */
+		
+		driver.switchTo().defaultContent();
+		driver.switchTo().frame(driver.findElement(By.xpath(
+				"/html[1]/body[1]/app-root[1]/app-home[1]/div[1]/div[1]/app-create-campaign[1]/div[1]/div[1]/div[2]/div[1]/div[6]/form[1]/div[2]/div[1]/div[1]/div[3]/fieldset[1]/div[4]/div[1]/div[2]/form[1]/div[1]/div[2]/div[1]/div[2]/ckeditor[1]/div[1]/div[1]/div[1]/iframe[1]")));
+		
+		driver.findElement(By.xpath("html/body")).click();
+		driver.switchTo().activeElement().sendKeys("Hello:Redistriute campaign section for minimiun 1 day");
+		driver.switchTo().defaultContent();
+		Thread.sleep(5000);
+		
+		JavascriptExecutor js171 = (JavascriptExecutor) driver;
+		js171.executeScript("window.scrollTo(document.body.scrollHeight,0)");
+		
+		/* Remove the comment for below code, if you choose the template above*/
+		
+		/*driver.findElement(By.xpath(properties.getProperty("eautoresponse_template_senddata"))).sendKeys("emailcon-merge");
 		Thread.sleep(5000);
 
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_templateclicksearch"))).click();
 		Thread.sleep(5000);
 		driver.findElement(By.xpath(properties.getProperty("eautoresponse_selecttemplate"))).click();
-		Thread.sleep(5000);
+		Thread.sleep(5000);*/
 
 	}
 

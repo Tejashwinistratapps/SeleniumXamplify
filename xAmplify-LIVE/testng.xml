@@ -12,13 +12,30 @@
     </classes>    
    </test> 
    
-  <!-- 
-   <test name="Test_LaunchVideo">
+ <test name="Test_Emailcampaign">
+    <classes>
+      <class name="com.xamplify.LIVE.Emailcampaign"/>
+    </classes>    
+   </test> 
+   
+   <test name="Test_Launch_Email">
+    <classes>
+      <class name="com.xamplify.LIVE.Launch_Email"/>
+    </classes>    
+   </test> 
+   
+    <test name="Test_Logoutin">
+    <classes>
+      <class name="com.xamplify.LIVE.Logoutin"/>
+    </classes>    
+   </test> 
+   
+  <!--   <test name="Test_LaunchVideo">
     <classes>
       <class name="com.xamplify.login.LaunchVideo"/>
     </classes>    
-   </test> -->
-   
+   </test> 
+    -->
   <!--  <test name="Test_PartnerRedistribute">
     <classes>
       <class name="com.xamplify.login.PartnerRedistribute"/>
@@ -32,19 +49,14 @@
    </test>  
      -->
    
-   
    <!-- <test name="Test_SaveEmail">
     <classes>
-      <class name="com.xamplify.login.SaveEmail"/>
+      <class name="com.xamplify.LIVE.SaveEmail"/>
     </classes>    
    </test>
     -->
-   <!-- <test name="Test_Launch_Email">
-    <classes>
-      <class name="com.xamplify.login.Launch_Email"/>
-    </classes>    
-   </test>
-    -->
+   
+   
   <!--  <test name="Test_ScheduleEmail">
     <classes>
       <class name="com.xamplify.login.ScheduleEmail"/>

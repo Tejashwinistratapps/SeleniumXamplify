@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
-  <test name="Test_Login(failed)">
+  <test name="Test_Emailcampaign(failed)">
     <classes>
-      <class name="com.xamplify.login.Login">
+      <class name="com.xamplify.LIVE.Launch_Email">
         <methods>
-          <include name="login"/>
+          <include name="launch"/>
         </methods>
-      </class> <!-- com.xamplify.login.Login -->
+      </class> <!-- com.xamplify.LIVE.Launch_Email -->
+      <class name="com.xamplify.LIVE.Emailcampaign">
+        <methods>
+          <include name="ecampaign"/>
+        </methods>
+      </class> <!-- com.xamplify.LIVE.Emailcampaign -->
     </classes>
-  </test> <!-- Test_Login(failed) -->
+  </test> <!-- Test_Emailcampaign(failed) -->
+  <test name="Test_Launch_Email(failed)">
+    <classes>
+      <class name="com.xamplify.LIVE.Launch_Email">
+        <methods>
+          <include name="ecampaign"/>
+          <include name="launch"/>
+        </methods>
+      </class> <!-- com.xamplify.LIVE.Launch_Email -->
+    </classes>
+  </test> <!-- Test_Launch_Email(failed) -->
+  <test name="Test_Logoutin(failed)">
+    <classes>
+      <class name="com.xamplify.LIVE.Launch_Email">
+        <methods>
+          <include name="launch"/>
+        </methods>
+      </class> <!-- com.xamplify.LIVE.Launch_Email -->
+      <class name="com.xamplify.LIVE.Logoutin">
+        <methods>
+          <include name="logoutvendor_loginpartner"/>
+          <include name="redistribute_campaign"/>
+        </methods>
+      </class> <!-- com.xamplify.LIVE.Logoutin -->
+    </classes>
+  </test> <!-- Test_Logoutin(failed) -->
 </suite> <!-- Failed suite [Suite] -->

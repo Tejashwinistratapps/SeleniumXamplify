@@ -5,11 +5,15 @@ import org.openqa.selenium.By;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 
+/*
+ * [for auto responses...comment @AfterTest annotation and use @Aftermethod , extends AutoResponsesEmail]
+ */
+
 //public class Launch_Email extends AutoResponsesEmail {
 
 public class Launch_Email extends Emailcampaign {
 	
-	// @AfterMethod  [for auto responses...comment @AfterTest annotation and use @Aftermethod , extends AutoResponsesEmail]
+	 //@AfterMethod  
 	
 	@AfterTest
 			
@@ -22,4 +26,4 @@ public class Launch_Email extends Emailcampaign {
 	
 	Thread.sleep(8000);
 }
-}
+};

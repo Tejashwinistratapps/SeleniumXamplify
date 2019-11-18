@@ -23,15 +23,16 @@ public class Emailcampaign {
 
 	WebDriver driver = Instance.getInstance();
 
-	Properties properties = PropertiesFile.readPropertyFile("rdata.properties");
+	Properties properties = PropertiesFile.readPropertyFile("ldata.properties");
 
-	//@BeforeMethod   [for auto responses...comment @test annotation ,use @Beforemethod  ]
+	//@BeforeMethod   /*[for auto responses...comment @test annotation ,use @Beforemethod  ]*/
+	
 	@Test
 	public void ecampaign() throws InterruptedException, SQLException {
-		driver.get("https://release.xamplify.io/home/dashboard/welcome");
+		//driver.get("https://xamplify.io/home/dashboard/welcome");
 
 		Thread.sleep(5000);
-		Properties properties = PropertiesFile.readPropertyFile("rdata.properties");
+		Properties properties = PropertiesFile.readPropertyFile("ldata.properties");
 
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 
@@ -49,8 +50,10 @@ public class Emailcampaign {
 		camp_action.click();
 		camp_action.perform();
 		Thread.sleep(5000);
+		
 		WebDriverWait waitc = new WebDriverWait(driver, 40);
-		WebElement opncamp = waitc.until(
+		
+  WebElement opncamp = waitc.until(
 				ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("e_openecampaign")))); //select email campaign
 		opncamp.click();
 
@@ -112,11 +115,11 @@ public class Emailcampaign {
 		js1.executeScript("window.scrollTo(document.body.scrollHeight,0)");
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(properties.getProperty("e_prtnrlst_srch"))).sendKeys("gayatri test mails");			//Search for partner list
+		/*driver.findElement(By.xpath(properties.getProperty("e_prtnrlst_srch"))).sendKeys("gayatri test mails");      //Search for partner list
 		Thread.sleep(5000);
 
-		driver.findElement(By.xpath(properties.getProperty("esrch_slct_prtnrlst_clck"))).click();					//Click on search
-		Thread.sleep(5000);
+		driver.findElement(By.xpath(properties.getProperty("esrch_slct_prtnrlst_clck"))).click();                     //Click on search
+		Thread.sleep(5000);*/
 
 		driver.findElement(By.xpath(properties.getProperty("eslct_prtnrlst"))).click();							//select the partner list
 		Thread.sleep(8000);
@@ -213,10 +216,7 @@ public class Emailcampaign {
 				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(properties.getProperty("esearch_template_select"))));			//select  template
 		w8.click();
 		
-		
-		
-
-		
+	
 		driver.findElement(By.xpath(properties.getProperty("etemplate_preview"))).click();
 		Thread.sleep(5000);
 		
